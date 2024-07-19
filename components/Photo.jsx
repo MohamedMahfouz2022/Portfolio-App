@@ -5,7 +5,7 @@ const photo = () => {
     return (
         <div className="w-full h-full relative">
             <div className="w-[250px] h-[200px] xl:w-[400px] xl:h-[350px]">
-                <Image src="/assets/Coding-bro.png"
+                <Image src="../public/Coding-bro.png"
                     className="object-contain"
                     priority
                     quality={100}
