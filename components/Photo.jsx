@@ -10,7 +10,7 @@ const photo = () => {
                     priority
                     quality={100}
                     fill
-                    alt=""
+                    alt="Coding-bro.png"
                 />
             </div>
         </div>
