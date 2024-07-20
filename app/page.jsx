@@ -35,7 +35,7 @@ const Home = () => {
           </div>
           {/* photo */}
           <div className="">
-            <Photo />
+            
           </div>
         </div>
       </div>
