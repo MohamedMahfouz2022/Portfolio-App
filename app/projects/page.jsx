@@ -73,9 +73,9 @@ const listOfProject = [
     stack: [{ icon: <FaHtml5 /> }, { icon: <FaCss3 /> }],
 
     live: "live demo",
-    urlLive: "https://mohamedmahfouz2022.github.io/social-links-project-main/ ",
+    urlLive: "https://mohamedmahfouz2022.github.io/social-links-profile-main/ ",
     github: "Github link",
-    urlGithub: "https://github.com/MohamedMahfouz2022/social-links-project-main ",
+    urlGithub: "https://github.com/MohamedMahfouz2022/social-links-profile-main ",
   },
 ]
 
