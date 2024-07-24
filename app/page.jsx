@@ -7,6 +7,7 @@ import Photo from "@/components/Photo"
 import { motion } from "framer-motion"
 
 const Home = () => {
+
   return (
     <motion.section className="h-full"
       initial={{ opacity: 0 }}
@@ -24,8 +25,8 @@ const Home = () => {
             <p className="text-center xl:text-start max-w-[500px] mb-8 text-white/80 ">I excel at crafting digital experiences and I am proficient in various programming languages and technologies.</p>
             {/* button and social */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button variant="outline" className="uppercase flex items-center gap-2  ">
-                <span>Download CV </span>
+              <Button variant="outline" className="uppercase flex items-center gap-2 ">
+                <a href="/Muhammad Mahfouz Moawad Hadib CV.pdf" download="Muhammad Mahfouz CV" target="_blank">Download CV </a>
                 <FiDownload className="text-xl" />
               </Button>
               <div className="mb-8 xl:mb-0">
