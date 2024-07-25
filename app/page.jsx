@@ -7,7 +7,6 @@ import Photo from "@/components/Photo"
 import { motion } from "framer-motion"
 
 const Home = () => {
-
   return (
     <motion.section className="h-full"
       initial={{ opacity: 0 }}

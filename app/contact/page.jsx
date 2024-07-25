@@ -14,7 +14,7 @@ const info = [
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "mohamedmahfouz.m2",
+    description: "mohamedmahfouz.m2@gmail.com",
   },
   {
     icon: <FaMapMarkedAlt />,
@@ -43,6 +43,7 @@ const contact = () => {
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
                 ex voluptatibus quae blanditiis est hic.
               </p>
+              {/* input */}
               <div className=" grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input type="fistname" placeholder="Firstname" />
                 <Input type="lastname" placeholder="Lastname" />
@@ -67,7 +68,7 @@ const contact = () => {
                     </div>
                     <div className="flex-1">
                       <p className="text-white/60">{item.title}</p>
-                      <h3 className="text-xl">{item.description}</h3>
+                      <h3 className="xl:text-xl sm:text-sm">{item.description}</h3>
                     </div>
                   </li>
                 )
