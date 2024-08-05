@@ -32,22 +32,27 @@ const core = {
 		{
 			icon: <FaHtml5 />,
 			name: "Html 5",
+			delayIcon: .9
 		},
 		{
 			icon: <FaCss3 />,
 			name: "Css 3",
+			delayIcon: 1
 		},
 		{
 			icon: <FaJs />,
 			name: "Java script",
+			delayIcon: 1.1
 		},
 		{
 			icon: <FaBootstrap />,
 			name: "Bootstrap.css",
+			delayIcon: 1.2
 		},
 		{
 			icon: <SiTailwindcss />,
 			name: "Tailwind.css",
+			delayIcon: 1.3
 		},
 	],
 };
@@ -65,18 +70,22 @@ const advanced = {
 		{
 			icon: <FaGithub />,
 			name: "Github",
+			delayIcon: .9
 		},
 		{
 			icon: <FaNodeJs />,
 			name: "Node.js",
+			delayIcon: 1
 		},
 		{
 			icon: <FaReact />,
 			name: "React.js",
+			delayIcon: 1.1
 		},
 		{
 			icon: <SiNextdotjs />,
 			name: "Next.js",
+			delayIcon: 1.2
 		},
 	],
 };
@@ -105,13 +114,26 @@ const skills = () => {
 								suscipit ?
 							</p>
 						</div>
+
 						<TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-							<TabsTrigger className="w-full" value="core">
-								{core.title}
-							</TabsTrigger>
-							<TabsTrigger className="w-full" value="advanced">
-								{advanced.title}
-							</TabsTrigger>
+							<motion.div initial={{ opacity: 0 }}
+								animate={{
+									opacity: 1,
+									transition: { delay: 1, duration: 0.8, ease: "easeInOut" }
+								}}>
+								<TabsTrigger className="w-full" value="core">
+									{core.title}
+								</TabsTrigger>
+							</motion.div>
+							<motion.div initial={{ opacity: 0 }}
+								animate={{
+									opacity: 1,
+									transition: { delay: 1.5, duration: 0.8, ease: "easeInOut" }
+								}}>
+								<TabsTrigger className="w-full" value="advanced">
+									{advanced.title}
+								</TabsTrigger>
+							</motion.div>
 						</TabsList>
 					</div>
 
@@ -129,7 +151,13 @@ const skills = () => {
 							<ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:gap-[30px] gap-3 my-10">
 								{core.coreSkills.map((skill, index) => {
 									return (
-										<li key={index}>
+										<motion.li key={index}
+											initial={{ translateY: 50, opacity: 0 }}
+											animate={{
+												opacity: 1,
+												translateY: 0,
+												transition: { delay: skill.delayIcon, duration: .8, ease: "easeInOut" }
+											}}>
 											<TooltipProvider delayDuration={100}>
 												<Tooltip>
 													<TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
@@ -144,7 +172,7 @@ const skills = () => {
 													</TooltipContent>
 												</Tooltip>
 											</TooltipProvider>
-										</li>
+										</motion.li>
 									);
 								})}
 							</ul>
@@ -162,7 +190,13 @@ const skills = () => {
 							<ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:gap-[30px] gap-3 my-10">
 								{advanced.advcSkills.map((skill, index) => {
 									return (
-										<li key={index}>
+										<motion.li key={index}
+											initial={{ translateY: 50, opacity: 0 }}
+											animate={{
+												opacity: 1,
+												translateY: 0,
+												transition: { delay: skill.delayIcon, duration: .8, ease: "easeInOut" }
+											}}>
 											<TooltipProvider delayDuration={100}>
 												<Tooltip>
 													<TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
@@ -177,7 +211,7 @@ const skills = () => {
 													</TooltipContent>
 												</Tooltip>
 											</TooltipProvider>
-										</li>
+										</motion.li>
 									);
 								})}
 							</ul>

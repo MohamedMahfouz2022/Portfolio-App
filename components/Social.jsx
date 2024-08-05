@@ -15,7 +15,7 @@ const Social = ({ containerStyle, iconStyle }) => {
         <div className={containerStyle}>
             {social.map((item, index) => {
                 return (
-                    <motion.span key={index}
+                    <motion.div key={index}
                         initial={{ translateY: 50, opacity: 0 }}
                         animate={{
                             opacity: 1,
@@ -25,7 +25,7 @@ const Social = ({ containerStyle, iconStyle }) => {
                         <Link href={item.path} target="_blank" className={iconStyle} >
                             {item.icon}
                         </Link>
-                    </motion.span>
+                    </motion.div>
 
                 )
             })}

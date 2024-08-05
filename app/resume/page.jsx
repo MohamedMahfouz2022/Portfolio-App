@@ -52,8 +52,7 @@ const Resume = () => {
 			<div className="container mx-auto">
 				<Tabs
 					defaultValue="about"
-					className="flex flex-col xl:flex-row xl:gap-[60px] justify-center"
-				>
+					className="flex flex-col xl:flex-row xl:gap-[60px] justify-center">
 					{/* side heder content */}
 					<div>
 						<div className="flex flex-col gap-6 my-10 ">
@@ -66,36 +65,73 @@ const Resume = () => {
 							</p>
 						</div>
 						<TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-							<TabsTrigger className="w-full" value="about">
-								{about.titlt}
-							</TabsTrigger>
-							<TabsTrigger className="w-full" value="expiriance">
-								{expiriance.titlt}
-							</TabsTrigger>
-							<TabsTrigger className="w-full" value="passion">
-								{passion.titlt}
-							</TabsTrigger>
+							<motion.div initial={{ opacity: 0 }}
+								animate={{
+									opacity: 1,
+									transition: { delay: 1, duration: 0.8, ease: "easeInOut" }
+								}}>
+								<TabsTrigger className="w-full" value="about">
+									{about.titlt}
+								</TabsTrigger>
+							</motion.div>
+							<motion.div initial={{ opacity: 0 }}
+								animate={{
+									opacity: 1,
+									transition: { delay: 1.3, duration: 0.8, ease: "easeInOut" }
+								}}>
+								<TabsTrigger className="w-full" value="expiriance">
+									{expiriance.titlt}
+								</TabsTrigger>
+							</motion.div>
+							<motion.div initial={{ opacity: 0 }}
+								animate={{
+									opacity: 1,
+									transition: { delay: 1.6, duration: 0.8, ease: "easeInOut" }
+								}}>
+								<TabsTrigger className="w-full" value="passion">
+									{passion.titlt}
+								</TabsTrigger>
+							</motion.div>
 						</TabsList>
 					</div>
 					{/* main content */}
 					<div className="min-h-[70vh] w-full pt-10">
 						<TabsContent value="about" className="w-full">
-							<div className="flex flex-col gap-[30px] text-center xl:text-left">
-								<h3 className="text-4xl font-bold my-3">{about.titlt}</h3>
-								{about.des}
-							</div>
+							<motion.div initial={{ opacity: 0 }}
+								animate={{
+									opacity: 1,
+									transition: { delay: .3, duration: 0.4, ease: "easeInOut" }
+								}}>
+								<div className="flex flex-col gap-[30px] text-center xl:text-left">
+									<h3 className="text-4xl font-bold my-3">{about.titlt}</h3>
+									{about.des}
+								</div>
+							</motion.div>
 						</TabsContent>
 						<TabsContent value="expiriance" className="w-full">
-							<div className="flex flex-col gap-[30px] text-center xl:text-left">
-								<h3 className="text-4xl font-bold my-3">{expiriance.titlt}</h3>
-								{expiriance.des}
-							</div>
+							<motion.div initial={{ opacity: 0 }}
+								animate={{
+									opacity: 1,
+									transition: { delay: .3, duration: 0.4, ease: "easeInOut" }
+								}}>
+								<div className="flex flex-col gap-[30px] text-center xl:text-left">
+									<h3 className="text-4xl font-bold my-3">{expiriance.titlt}</h3>
+									{expiriance.des}
+								</div>
+							</motion.div>
 						</TabsContent>
 						<TabsContent value="passion" className="w-full">
-							<div className="flex flex-col gap-[30px] text-center xl:text-left">
-								<h3 className="text-4xl font-bold my-3">{passion.titlt}</h3>
-								{passion.des}
-							</div>
+							<motion.div initial={{ opacity: 0 }}
+								animate={{
+									opacity: 1,
+									transition: { delay: .3, duration: 0.4, ease: "easeInOut" }
+								}}>
+
+								<div className="flex flex-col gap-[30px] text-center xl:text-left">
+									<h3 className="text-4xl font-bold my-3">{passion.titlt}</h3>
+									{passion.des}
+								</div>
+							</motion.div>
 						</TabsContent>
 					</div>
 				</Tabs>

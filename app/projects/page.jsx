@@ -16,6 +16,7 @@ const listOfProject = [
     urlLive: "https://mohamedmahfouz2022.github.io/blogr-landing-page-main/",
     github: "Github link",
     urlGithub: "https://github.com/MohamedMahfouz2022/blogr-landing-page-main.git",
+    delayCard: 0.85
   },
   {
     num: "02",
@@ -28,6 +29,7 @@ const listOfProject = [
     urlLive: "https://mohamedmahfouz2022.github.io/To-Do-List/",
     github: "Github link",
     urlGithub: "https://github.com/MohamedMahfouz2022/To-Do-List",
+    delayCard: 0.9
   },
   {
     num: "03",
@@ -40,6 +42,7 @@ const listOfProject = [
     urlLive: "https://mohamedmahfouz2022.github.io/Weather-Journal-App/ ",
     github: "Github link",
     urlGithub: "https://github.com/MohamedMahfouz2022/Weather-Journal-App",
+    delayCard: .95
   },
   {
     num: "04",
@@ -52,6 +55,7 @@ const listOfProject = [
     urlLive: "https://mohamedmahfouz2022.github.io/cd0428-landing-page-main/",
     github: "Github link",
     urlGithub: "https://github.com/MohamedMahfouz2022/cd0428-landing-page-main ",
+    delayCard: 1
   },
   {
     num: "05",
@@ -64,6 +68,7 @@ const listOfProject = [
     urlLive: "https://mohamedmahfouz2022.github.io/safari/",
     github: "Github link",
     urlGithub: "https://github.com/MohamedMahfouz2022/safari",
+    delayCard: 1.1
   },
   {
     num: "06",
@@ -76,11 +81,13 @@ const listOfProject = [
     urlLive: "https://mohamedmahfouz2022.github.io/social-links-profile-main/ ",
     github: "Github link",
     urlGithub: "https://github.com/MohamedMahfouz2022/social-links-profile-main ",
+    delayCard: 1.2
   },
 ]
 
 const Projects = () => {
-  return <motion.section className="container mx-auto" initial={{ opacity: 0 }}
+  return <motion.section className="container mx-auto"
+    initial={{ opacity: 0 }}
     animate={{
       opacity: 1,
       transition: { delay: .7, duration: 0.4, ease: "easeInOut" }
@@ -88,8 +95,14 @@ const Projects = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
       {listOfProject.map((project, index) => {
         return (
-          <div key={index} className="mx-auto my-5 max-w-xs rounded-xl text-white shadow 
-						bg-[#232329] p-3 hover:-translate-y-3 transition-all duration-500 ease-in-out">
+          <motion.div key={index} className="mx-auto my-5 max-w-xs rounded-xl text-white shadow 
+						bg-[#232329] p-3 hover:-translate-y-3 transition-all duration-500 ease-in-out"
+            initial={{ opacity: 0, rotate: -10 }}
+            animate={{
+              opacity: 1,
+              rotate: 0,
+              transition: { delay: project.delayCard, duration: .4, ease: "easeInOut" }
+            }}>
             {/* titel card */}
             <div className="flex flex-row justify-between items-center">
               <div className="flex flex-col gap-3">
@@ -116,7 +129,7 @@ const Projects = () => {
                 <span className="text-accent hover:text-accent-hover"> {project.github} </span>
               </Link>
             </div>
-          </div>
+          </motion.div>
         )
       })}
     </div>
