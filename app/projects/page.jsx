@@ -34,14 +34,14 @@ const listOfProject = [
   {
     num: "03",
     category: "Frontend",
-    title: "Weather-Journal App |",
+    title: "Zenbrew Coffee Site |",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, ipsa!",
     stack: [{ icon: <FaHtml5 /> }, { icon: <FaCss3 /> }, { icon: <FaJs /> }, { icon: <FaNodeJs /> }],
 
     live: "live demo",
-    urlLive: "https://mohamedmahfouz2022.github.io/Weather-Journal-App/ ",
+    urlLive: "https://zenbrew-coffee-site-git-main-muhammad-mahfouz-s-projects.vercel.app/",
     github: "Github link",
-    urlGithub: "https://github.com/MohamedMahfouz2022/Weather-Journal-App",
+    urlGithub: "https://github.com/MohamedMahfouz2022/Zenbrew-Coffee-Site",
     delayCard: .95
   },
   {
