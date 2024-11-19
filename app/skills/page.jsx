@@ -61,7 +61,7 @@ const advanced = {
 	des: (
 		<p className="max-w-[600px] text-white/60 mx-auto xl:mx-0 flex flex-col gap-5 leading-loose">
 			<span className="text-accent">
-				my GitHub's advanced skills, I guarantee organized and collaborative code that facilitates teamwork.
+				my GitHub advanced skills, I guarantee organized and collaborative code that facilitates teamwork.
 				My abilities in Node.js let me work on the back of the projects, while my deep experience in React.js Next.js is the development of integrated and modern web applications with high performance, as I take care of every detail to make the experience smooth and distinctive for users, whether in fast loading of pages or dynamic in interface interaction.
 			</span>
 		</p>
