@@ -59,7 +59,7 @@ const Resume = () => {
 							<h1 className="text-4xl font-bold my-3 mx-auto xl:mx-0">
 								Why hire me ?
 							</h1>
-							<p className="text-white/60 ">
+							<p className="text-white/60 wx-[100px]">
 								I believe Im the right person for this role because I have adeep understanding of React.js and Next.js framework, which allows me to build fast and efficient web application.
 								I have a strong sense of design and user experience, which makes me keen to deliver interactive interfaces that engage and retain users.
 								I also love teamwork and adhere to best coding practices, which enhances collaboration with team members and contributes to improved productivity.
