@@ -73,14 +73,14 @@ const listOfProject = [
   {
     num: "06",
     category: "Frontend",
-    title: "Social links project |",
+    title: "Restaurant-app |",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, ipsa!",
-    stack: [{ icon: <FaHtml5 /> }, { icon: <FaCss3 /> }],
+    stack: [{ icon: <FaHtml5 /> }, { icon: <FaCss3 /> }, { icon: <FaJs /> }, { icon: <FaNodeJs /> }],
 
     live: "live demo",
-    urlLive: "https://mohamedmahfouz2022.github.io/social-links-profile-main/ ",
+    urlLive: "https://restaurant-app-five-omega.vercel.app//",
     github: "Github link",
-    urlGithub: "https://github.com/MohamedMahfouz2022/social-links-profile-main ",
+    urlGithub: "https://github.com/MohamedMahfouz2022/restaurant-app",
     delayCard: 1.2
   },
 ]
