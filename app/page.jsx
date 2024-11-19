@@ -31,7 +31,7 @@ const Home = () => {
                 opacity: 1,
                 translateX: 0,
                 transition: { delay: .9, duration: 0.7, ease: "easeInOut" }
-              }}>Hello I`m </motion.h1>
+              }}>Hello I&apos;m </motion.h1>
             <motion.h1 className="text-3xl text-accent"
               initial={{ translateX: -50, opacity: 0 }}
               animate={{
@@ -45,7 +45,7 @@ const Home = () => {
                 opacity: 1,
                 translateX: 0,
                 transition: { delay: 1.1, duration: 0.7, ease: "easeInOut" }
-              }}>I excel at crafting digital experiences and I am proficient in various programming languages and technologies.</motion.p>
+              }}>I excel at crafting digital experiences and I&apos;am proficient in various programming languages and technologies.</motion.p>
             {/* button and social */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <motion.div
