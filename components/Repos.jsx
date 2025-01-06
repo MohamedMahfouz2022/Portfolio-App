@@ -11,9 +11,8 @@ const Repos = () => {
     const fetchRepos = async () => {
       try {
         const response = await fetch(
-          // "https://api.github.com/users/MohamedMahfouz2022/repos"
-          "http://localhost:4000/repos"
-        );
+          "https://api.github.com/users/MohamedMahfouz2022/repos"
+                  );
         const data = await response.json();
         setRepos(data);
       } catch (error) {
