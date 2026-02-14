@@ -40,8 +40,7 @@ const contact = () => {
             <form className="flex flex-col gap-5 p-7 bg-[#27272c] rounded-lg">
               <h3 className="text-4xl text-accent">Let's work together</h3>
               <p className="text-white/60">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
-                ex voluptatibus quae blanditiis est hic.
+                I'm a passionate and dedicated software developer with strong skills in web technologies and a keen eye for detail. I love solving problems and turning ideas into reality. Whether you need a fresh website, a custom application, or just some technical support, I'm ready to contribute and deliver high-quality results. Let's build something amazing together
               </p>
               {/* input */}
               <div className=" grid grid-cols-1 md:grid-cols-2 gap-6">
