@@ -47,3 +47,61 @@ A fully responsive, professionally designed developer portfolio showcasing front
 ---
 
 ## 📁 Folder Structure
+portfolio-app/
+├── .github/
+│   └── workflows/        # CI/CD pipeline configuration
+├── app/                  # Next.js App Router pages
+│   ├── layout.js         # Root layout with global styles
+│   └── page.js           # Homepage
+├── components/           # Reusable UI components
+├── lib/                  # Utility functions and helpers
+├── public/               # Static assets
+├── tailwind.config.js    # Tailwind configuration
+└── next.config.mjs       # Next.js configuration
+
+
+---
+
+## 🚀 Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/MohamedMahfouz2022/Portfolio-App.git
+cd Portfolio-App
+
+# 2. Install dependencies
+npm install
+
+# 3. Run development server
+npm run dev
+
+# 4. Open in browser
+# http://localhost:3000
+```
+
+---
+
+## 📸 Screenshots
+
+| Section | Preview |
+|---------|---------|
+| Hero | ![Hero](.github/screenshots/hero.png) |
+| Projects | ![Projects](.github/screenshots/projects.png) |
+| Contact | ![Contact](.github/screenshots/contact.png) |
+
+---
+
+## 🔮 Future Improvements
+
+- [ ] Migrate to TypeScript for full type safety
+- [ ] Add dark/light theme toggle
+- [ ] Integrate a CMS (Contentlayer or Sanity) for projects data
+- [ ] Add animations with Framer Motion
+- [ ] Implement contact form with email notifications
+- [ ] Add blog section with MDX support
+
+---
+
+## 📄 License
+
+MIT © [Mohamed Mahfouz](https://github.com/MohamedMahfouz2022)
