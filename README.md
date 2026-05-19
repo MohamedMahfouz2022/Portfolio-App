@@ -47,6 +47,7 @@ A fully responsive, professionally designed developer portfolio showcasing front
 ---
 
 ## 📁 Folder Structure
+```
 portfolio-app/
 ├── .github/
 │   └── workflows/        # CI/CD pipeline configuration
@@ -58,7 +59,7 @@ portfolio-app/
 ├── public/               # Static assets
 ├── tailwind.config.js    # Tailwind configuration
 └── next.config.mjs       # Next.js configuration
-
+```
 
 ---
 
