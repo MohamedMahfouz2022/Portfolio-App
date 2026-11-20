@@ -1,224 +1,128 @@
-"use client";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-	TooltipProvider,
-	Tooltip,
-	TooltipTrigger,
-	TooltipContent,
-} from "@radix-ui/react-tooltip";
-import {
-	FaBootstrap,
-	FaCss3,
-	FaGithub,
-	FaHtml5,
-	FaJs,
-	FaNodeJs,
-	FaReact,
-} from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
-import { motion } from "framer-motion";
-// core data
-const core = {
-	title: "CORE SKILLS",
-	des: (
-		<p className="max-w-[600px] text-white/60 mx-auto xl:mx-0 flex flex-col gap-5 leading-loose">
-			<span className="text-accent">
-				
-			</span>
-		</p>
-	),
-	coreSkills: [
-		{
-			icon: <FaHtml5 />,
-			name: "Html 5",
-			delayIcon: .9
-		},
-		{
-			icon: <FaCss3 />,
-			name: "Css 3",
-			delayIcon: 1
-		},
-		{
-			icon: <FaJs />,
-			name: "Java script",
-			delayIcon: 1.1
-		},
-		{
-			icon: <FaBootstrap />,
-			name: "Bootstrap.css",
-			delayIcon: 1.2
-		},
-		{
-			icon: <SiTailwindcss />,
-			name: "Tailwind.css",
-			delayIcon: 1.3
-		},
-	],
-};
-const advanced = {
-	title: "ADVANCED SKILLS",
-	des: (
-		<p className="max-w-[600px] text-white/60 mx-auto xl:mx-0 flex flex-col gap-5 leading-loose">
-			<span className="text-accent">
-				
-			</span>
-		</p>
-	),
-	advcSkills: [
-		{
-			icon: <FaGithub />,
-			name: "Github",
-			delayIcon: .9
-		},
-		{
-			icon: <FaNodeJs />,
-			name: "Node.js",
-			delayIcon: 1
-		},
-		{
-			icon: <FaReact />,
-			name: "React.js",
-			delayIcon: 1.1
-		},
-		{
-			icon: <SiNextdotjs />,
-			name: "Next.js",
-			delayIcon: 1.2
-		},
-	],
+  FiCode,
+  FiGlobe,
+  FiLayers,
+  FiLayout,
+  FiTool,
+  FiTrendingUp,
+  FiUsers,
+} from "react-icons/fi";
+
+export const metadata = {
+  title: "Skills",
+  description:
+    "Front-end skills and tools used by Muhammad Mahfouz Moawad, including React, Next.js, TypeScript, and responsive RTL development.",
 };
 
-const skills = () => {
-	return (
-		<motion.section className=" flex items-center justify-center py-6 xl:py-0"
-			initial={{ opacity: 0 }}
-			animate={{
-				opacity: 1,
-				transition: { delay: .7, duration: 0.4, ease: "easeInOut" }
-			}}>
-			<div className="container mx-auto">
-				<Tabs
-					defaultValue="core"
-					className="flex flex-col xl:flex-row xl:gap-[60px] justify-center"
-				>
-					{/* side heder content */}
-					<div>
-						<div className="flex flex-col gap-6 my-10">
-							<h1 className="text-4xl font-bold my-3 mx-auto xl:mx-0">
-								My Skills
-							</h1>
-							<p className="text-white/60 mx-auto xl:mx-0">
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius,
-								suscipit ?
-							</p>
-						</div>
+const skillGroups = [
+  {
+    title: "Core technologies",
+    description: "The foundations I use to build for the web.",
+    icon: FiCode,
+    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript"],
+  },
+  {
+    title: "Frameworks & libraries",
+    description: "Frameworks and libraries used across my projects.",
+    icon: FiLayers,
+    skills: ["React", "Next.js 14 · App Router", "Framer Motion", "Zustand", "SCSS", "Bootstrap 5"],
+  },
+  {
+    title: "Styling & layout",
+    description: "Responsive interfaces with support for different layouts and directions.",
+    icon: FiLayout,
+    skills: ["Tailwind CSS", "CSS Grid", "Flexbox", "Responsive Design", "RTL Support"],
+  },
+  {
+    title: "Tools & workflow",
+    description: "Tools I use to build, inspect, collaborate, and ship.",
+    icon: FiTool,
+    skills: ["Git", "GitHub", "Figma", "Postman", "Biome", "Vercel", "REST APIs", "JSON"],
+  },
+  {
+    title: "Web concepts",
+    description: "Patterns and integrations applied in the portfolio projects.",
+    icon: FiTrendingUp,
+    skills: ["SSR / SSG", "generateStaticParams", "SEO", "WhatsApp API Integration", "Component Architecture"],
+  },
+];
 
-						<TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-							<motion.div initial={{ opacity: 0 }}
-								animate={{
-									opacity: 1,
-									transition: { delay: 1, duration: 0.8, ease: "easeInOut" }
-								}}>
-								<TabsTrigger className="w-full" value="core">
-									{core.title}
-								</TabsTrigger>
-							</motion.div>
-							<motion.div initial={{ opacity: 0 }}
-								animate={{
-									opacity: 1,
-									transition: { delay: 1.5, duration: 0.8, ease: "easeInOut" }
-								}}>
-								<TabsTrigger className="w-full" value="advanced">
-									{advanced.title}
-								</TabsTrigger>
-							</motion.div>
-						</TabsList>
-					</div>
+const strengths = ["Team player", "Self-learner", "Adaptability", "Responsibility"];
 
-					{/* main content */}
-					<div className="min-h-[70vh] w-full pt-10">
-						{/* Core */}
-						<TabsContent value="core" className="w-full ">
-							{/* title */}
-							<div className="flex flex-col gap-[10px] text-center xl:text-left">
-								<h3 className="text-4xl font-bold my-3">{core.title}</h3>
-								{core.des}
-							</div>
+function SkillGroup({ title, description, icon: Icon, skills }) {
+  return (
+    <article className="h-full rounded-2xl border border-white/10 bg-[#232329] p-5 transition hover:border-accent/40 sm:p-6">
+      <div className="flex items-start gap-4">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent ring-1 ring-inset ring-accent/20">
+          <Icon aria-hidden="true" className="text-xl" />
+        </span>
+        <div>
+          <h3 className="text-lg font-semibold text-white">{title}</h3>
+          <p className="mt-1 text-sm leading-6 text-white/60">{description}</p>
+        </div>
+      </div>
+      <ul className="mt-5 flex flex-wrap gap-2" aria-label={title}>
+        {skills.map((skill) => (
+          <li key={skill} className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/80">
+            {skill}
+          </li>
+        ))}
+      </ul>
+    </article>
+  );
+}
 
-							{/* list of core icon*/}
-							<ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:gap-[30px] gap-3 my-10">
-								{core.coreSkills.map((skill, index) => {
-									return (
-										<motion.li key={index}
-											initial={{ translateY: 50, opacity: 0 }}
-											animate={{
-												opacity: 1,
-												translateY: 0,
-												transition: { delay: skill.delayIcon, duration: .8, ease: "easeInOut" }
-											}}>
-											<TooltipProvider delayDuration={100}>
-												<Tooltip>
-													<TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
-														<div className=" text-6xl group-hover:text-accent transition-all duration-300">
-															{skill.icon}
-														</div>
-													</TooltipTrigger>
-													<TooltipContent>
-														<p className="bg-white w-max py-1 px-5 font-bold text-primary rounded">
-															{skill.name}
-														</p>
-													</TooltipContent>
-												</Tooltip>
-											</TooltipProvider>
-										</motion.li>
-									);
-								})}
-							</ul>
-						</TabsContent>
+export default function SkillsPage() {
+  return (
+    <main className="container mx-auto max-w-6xl px-4 pb-16 pt-8 sm:px-6 sm:pt-12">
+      <header className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent">Skills &amp; toolkit</p>
+        <h1 className="text-3xl font-bold text-white sm:text-5xl">The tools behind the work</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
+          A clear overview of the technologies, practices, and tools I use to build responsive web experiences, including Arabic right-to-left interfaces.
+        </p>
+      </header>
 
-						{/* advanced */}
-						<TabsContent value="advanced" className="w-full ">
-							{/* title */}
-							<div className="flex flex-col gap-[10px] text-center xl:text-left">
-								<h3 className="text-4xl font-bold my-3">{advanced.title}</h3>
-								{advanced.des}
-							</div>
+      <section aria-label="Technical skills" className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {skillGroups.map((group) => <SkillGroup key={group.title} {...group} />)}
+      </section>
 
-							{/* list of advanced icon */}
-							<ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:gap-[30px] gap-3 my-10">
-								{advanced.advcSkills.map((skill, index) => {
-									return (
-										<motion.li key={index}
-											initial={{ translateY: 50, opacity: 0 }}
-											animate={{
-												opacity: 1,
-												translateY: 0,
-												transition: { delay: skill.delayIcon, duration: .8, ease: "easeInOut" }
-											}}>
-											<TooltipProvider delayDuration={100}>
-												<Tooltip>
-													<TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
-														<div className=" text-6xl group-hover:text-accent transition-all duration-300">
-															{skill.icon}
-														</div>
-													</TooltipTrigger>
-													<TooltipContent>
-														<p className="bg-white w-max py-1 px-5 font-bold text-primary rounded">
-															{skill.name}
-														</p>
-													</TooltipContent>
-												</Tooltip>
-											</TooltipProvider>
-										</motion.li>
-									);
-								})}
-							</ul>
-						</TabsContent>
-					</div>
-				</Tabs>
-			</div>
-		</motion.section>
-	);
-};
+      <div className="mt-6 grid gap-4 md:grid-cols-2">
+        <section aria-labelledby="strengths-heading" className="rounded-2xl border border-white/10 bg-[#232329] p-5 sm:p-6">
+          <div className="flex items-center gap-3">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent ring-1 ring-inset ring-accent/20">
+              <FiUsers aria-hidden="true" className="text-xl" />
+            </span>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">How I work</p>
+              <h2 id="strengths-heading" className="mt-1 text-xl font-semibold text-white">Professional strengths</h2>
+            </div>
+          </div>
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {strengths.map((strength) => <li key={strength} className="rounded-full border border-white/10 px-3 py-2 text-sm text-white/75">{strength}</li>)}
+          </ul>
+        </section>
 
-export default skills;
+        <section aria-labelledby="languages-heading" className="rounded-2xl border border-white/10 bg-[#232329] p-5 sm:p-6">
+          <div className="flex items-center gap-3">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent ring-1 ring-inset ring-accent/20">
+              <FiGlobe aria-hidden="true" className="text-xl" />
+            </span>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Communication</p>
+              <h2 id="languages-heading" className="mt-1 text-xl font-semibold text-white">Languages</h2>
+            </div>
+          </div>
+          <ul className="mt-5 flex flex-wrap gap-3">
+            <li className="rounded-xl border border-white/10 px-4 py-3 text-sm text-white/80"><span className="font-semibold text-white">Arabic</span><span className="ml-2 text-white/55">Native</span></li>
+            <li className="rounded-xl border border-white/10 px-4 py-3 text-sm text-white/80"><span className="font-semibold text-white">English</span><span className="ml-2 text-white/55">A2</span></li>
+          </ul>
+        </section>
+      </div>
+
+      <p className="mt-8 text-center text-sm text-white/55">
+        Want to see these skills in action? <a href="/projects" className="font-semibold text-accent underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">Explore selected projects</a>.
+      </p>
+    </main>
+  );
+}
