@@ -5,22 +5,15 @@ import MobileNav from "./MobileNav";
 
 const Header = () => {
   return (
-    <header className="py-2 xl:py-6 text-white ">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* logo */}
-        <Link href="/">
-          <h1 className="text-4xl font-semibold" >
-            Mo<span className="text-accent" >.</span></h1>
+    <header className="px-4 py-2 text-white sm:px-6 xl:py-6">
+      <div className="container mx-auto flex items-center justify-between gap-4">
+        <Link href="/" aria-label="Mohamed Mahfouz home" className="shrink-0 rounded outline-none focus-visible:ring-2 focus-visible:ring-accent">
+          <span className="text-3xl font-semibold sm:text-4xl">Mo<span className="text-accent">.</span></span>
         </Link>
-
-        {/* desktop nav & hire me button */}
-        <div className="hidden xl:flex items-center gap-8 ">
+        <div className="hidden items-center gap-8 xl:flex">
           <Nav />
-          <Link href="/contact">
-            <Button >Hire me</Button>
-          </Link>
+          <Link href="/contact"><Button>Hire me</Button></Link>
         </div>
-        {/* Mobaile Navbar */}
         <div className="xl:hidden">
           <MobileNav />
         </div>
@@ -28,6 +21,5 @@ const Header = () => {
     </header>
   );
 };
-
 
 export default Header;
