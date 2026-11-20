@@ -1,165 +1,79 @@
-"use client";
-/* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { FiMail, FiMapPin, FiMessageCircle, FiPhone } from "react-icons/fi";
+import ContactForm from "@/components/ContactForm";
 
-const info = [
+export const metadata = {
+  title: "Contact",
+  description:
+    "Contact Muhammad Mahfouz Moawad about front-end development, React, Next.js, and web projects.",
+};
+
+const contactMethods = [
   {
-    icon: <FaPhoneAlt />,
-    title: "Phone",
-    description: "(+20)1013495432",
+    label: "Call",
+    value: "+20 101 349 5432",
+    href: "tel:+201013495432",
+    icon: FiPhone,
   },
   {
-    icon: <FaEnvelope />,
-    title: "Email",
-    description: "mohamedmahfouz.m2@gmail.com",
-  },
-  {
-    icon: <FaMapMarkedAlt />,
-    title: "Address",
-    description: "Damanhour, Beheira, Egypt",
+    label: "Email",
+    value: "mohamedmahfouz.m2@gmail.com",
+    href: "mailto:mohamedmahfouz.m2@gmail.com",
+    icon: FiMail,
   },
 ];
 
-const Contact = () => {
-  // ١. الـ state لكل حقل
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  // ٢. دالة تحديث الـ state
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  // ٣. دالة الإرسال على واتساب
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const { firstname, lastname, email, phone, message } = formData;
-
-    const whatsappNumber = "201013495432"; // كود مصر + الرقم
-
-    const text = 
-`👤 Name: ${firstname} ${lastname}
-📧 Email: ${email}
-📞 Phone: ${phone}
-💬 Message: ${message}`;
-
-    const encodedText = encodeURIComponent(text);
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-
-    window.open(whatsappURL, "_blank");
-  };
-
+export default function ContactPage() {
   return (
-    <motion.section
-      className="py-5"
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 0.7, duration: 0.4, ease: "easeInOut" },
-      }}
-    >
-      <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row gap-[25px]">
-          {/* form */}
-          <div className="xl:w-[50%] order-2 xl:order-none">
-            {/* ٤. ربط الفورم بـ handleSubmit */}
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col gap-5 p-7 bg-[#27272c] rounded-lg"
-            >
-              <h3 className="text-4xl text-accent">Let's work together</h3>
-              <p className="text-white/60">
-                I'm a passionate and dedicated software developer with strong
-                skills in web technologies and a keen eye for detail. I love
-                solving problems and turning ideas into reality. Whether you
-                need a fresh website, a custom application, or just some
-                technical support, I'm ready to contribute and deliver
-                high-quality results. Let's build something amazing together
-              </p>
+    <main className="container mx-auto max-w-6xl px-4 pb-16 pt-8 sm:px-6 sm:pt-12">
+      <header className="mb-9 max-w-3xl">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent">Contact</p>
+        <h1 className="text-3xl font-bold leading-tight text-white sm:text-5xl">Let&apos;s talk about your next project</h1>
+        <p className="mt-4 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
+          Have a project in mind or want to discuss front-end work? Send a few details below, or reach out directly using the contact options.
+        </p>
+      </header>
 
-              {/* ٥. الـ inputs مربوطة بالـ state */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input
-                  type="text"
-                  name="firstname"
-                  placeholder="Firstname"
-                  value={formData.firstname}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  type="text"
-                  name="lastname"
-                  placeholder="Lastname"
-                  value={formData.lastname}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Email address"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
-              </div>
+      <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:gap-8">
+        <aside className="rounded-2xl border border-white/10 bg-[#232329] p-5 sm:p-7" aria-labelledby="contact-details-heading">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Get in touch</p>
+          <h2 id="contact-details-heading" className="mt-2 text-2xl font-bold text-white">Contact details</h2>
+          <ul className="mt-6 space-y-3">
+            {contactMethods.map(({ label, value, href, icon: Icon }) => (
+              <li key={label}>
+                <a href={href} className="flex min-h-[76px] items-center gap-4 rounded-xl border border-white/10 bg-primary/40 p-4 transition hover:border-accent/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                    <Icon aria-hidden="true" className="text-xl" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-xs text-white/55">{label}</span>
+                    <span className="mt-1 block break-words text-sm font-medium text-white sm:text-base">{value}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+            <li className="flex min-h-[76px] items-center gap-4 rounded-xl border border-white/10 bg-primary/40 p-4">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                <FiMapPin aria-hidden="true" className="text-xl" />
+              </span>
+              <span>
+                <span className="block text-xs text-white/55">Location</span>
+                <span className="mt-1 block text-sm font-medium text-white sm:text-base">Damanhour, Beheira, Egypt</span>
+              </span>
+            </li>
+          </ul>
 
-              {/* ٦. الـ textarea مربوطة بالـ state */}
-              <Textarea
-                className="h-[100px]"
-                name="message"
-                placeholder="Type your message here."
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
+          <a
+            href="https://wa.me/201013495432"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border border-accent/35 bg-accent/10 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
+          >
+            <FiMessageCircle aria-hidden="true" className="text-lg" /> Open WhatsApp directly
+          </a>
+        </aside>
 
-              {/* ٧. زرار الإرسال */}
-              <Button type="submit" size="md" className="max-w-40">
-                Send message
-              </Button>
-            </form>
-          </div>
-
-          {/* info */}
-          <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
-            <ul className="flex flex-col gap-10">
-              {info.map((item, index) => (
-                <li key={index} className="flex items-center gap-6">
-                  <div className="w-[50px] h-[50px] xl:w-[70px] xl:h-[70px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
-                    <div className="text-[28px]">{item.icon}</div>
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-white/60">{item.title}</p>
-                    <h3 className="xl:text-xl sm:text-sm">{item.description}</h3>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <ContactForm />
       </div>
-    </motion.section>
+    </main>
   );
-};
-
-export default Contact;
+}

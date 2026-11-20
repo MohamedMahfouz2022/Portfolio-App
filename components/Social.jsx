@@ -1,36 +1,59 @@
-import Link from "next/link"
-import { FaGithub, FaLinkedinIn, FaWhatsapp, FaFacebookF, FaCodepen } from "react-icons/fa"
-import { motion } from "framer-motion"
+"use client";
 
-const social = [
-    { icon: <FaLinkedinIn />, path: "https://www.linkedin.com/in/mohamed-mahfouz-moawad?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", delayIcon: 1.1 },
-    { icon: <FaGithub />, path: "https://github.com/MohamedMahfouz2022", delayIcon: 1.2 },
-    { icon: <FaWhatsapp />, path: "https://wa.me/qr/SWV2KAXH6DCPL1", delayIcon: 1.3 },
-    { icon: <FaFacebookF />, path: "https://www.facebook.com/mohamed.mahfouz.35175?mibextid=ZbWKwL", delayIcon: 1.4 },
-    { icon: <FaCodepen />, path: "https://codepen.io/mohamedmahfouz2022/pens/public", delayIcon: 1.5 },
-]
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { FaCodepen, FaFacebookF, FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 
-const Social = ({ containerStyle, iconStyle }) => {
-    return (
-        <div className={containerStyle}>
-            {social.map((item, index) => {
-                return (
-                    <motion.div key={index}
-                        initial={{ translateY: 50, opacity: 0 }}
-                        animate={{
-                            opacity: 1,
-                            translateY: 0,
-                            transition: { delay: item.delayIcon, duration: .8, ease: "easeInOut" }
-                        }}>
-                        <Link href={item.path} target="_blank" className={iconStyle} >
-                            {item.icon}
-                        </Link>
-                    </motion.div>
+const socialLinks = [
+  {
+    label: "LinkedIn profile",
+    icon: <FaLinkedinIn aria-hidden="true" />,
+    href: "https://www.linkedin.com/in/mohamed-mahfouz-moawad?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+  },
+  {
+    label: "GitHub profile",
+    icon: <FaGithub aria-hidden="true" />,
+    href: "https://github.com/MohamedMahfouz2022",
+  },
+  {
+    label: "WhatsApp contact",
+    icon: <FaWhatsapp aria-hidden="true" />,
+    href: "https://wa.me/qr/SWV2KAXH6DCPL1",
+  },
+  {
+    label: "Facebook profile",
+    icon: <FaFacebookF aria-hidden="true" />,
+    href: "https://www.facebook.com/mohamed.mahfouz.35175?mibextid=ZbWKwL",
+  },
+  {
+    label: "CodePen profile",
+    icon: <FaCodepen aria-hidden="true" />,
+    href: "https://codepen.io/mohamedmahfouz2022/pens/public",
+  },
+];
 
-                )
-            })}
-        </div>
-    )
+export default function Social({ containerStyle = "flex gap-4", iconStyle = "text-2xl" }) {
+  return (
+    <ul aria-label="Social profiles" className={containerStyle}>
+      {socialLinks.map(({ label, icon, href }, index) => (
+        <motion.li
+          key={label}
+          initial={{ translateY: 24, opacity: 0 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ delay: 0.15 + index * 0.08, duration: 0.4, ease: "easeOut" }}
+        >
+          <Link
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+            title={label}
+            className={`flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent ${iconStyle}`}
+          >
+            {icon}
+          </Link>
+        </motion.li>
+      ))}
+    </ul>
+  );
 }
-
-export default Social

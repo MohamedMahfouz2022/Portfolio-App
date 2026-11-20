@@ -1,20 +1,16 @@
-"use clinet "
-import Image from "next/image"
+import Image from "next/image";
 
-const photo = () => {
-    return (
-        <div className="w-full h-full relative">
-            <div className="w-[250px] h-[200px] xl:w-[400px] xl:h-[350px]">
-                <Image src="/Coding-bro.png"
-                    className="object-contain"
-                    priority
-                    quality={100}
-                    fill
-                    alt="Coding-bro.png"
-                />
-            </div>
-        </div>
-    )
+export default function Photo() {
+  return (
+    <div className="relative aspect-square w-full">
+      <Image
+        src="/Coding-bro.png"
+        alt="Illustration of a developer working on a laptop"
+        fill
+        priority
+        sizes="(max-width: 1023px) 80vw, 40vw"
+        className="object-contain"
+      />
+    </div>
+  );
 }
-
-export default photo
