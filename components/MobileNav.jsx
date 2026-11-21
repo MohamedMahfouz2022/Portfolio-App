@@ -11,15 +11,19 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { siteNavLinks } from "./site-nav-links";
+import { getSiteNavLinks } from "./site-nav-links";
 
-const MobileNav = () => {
+const MobileNav = ({ locale = "en" }) => {
   const pathname = usePathname();
+  const siteNavLinks = getSiteNavLinks(locale);
+  const text = locale === "ar"
+    ? { open: "فتح قائمة التنقل", title: "تنقل في الموقع", description: "اختر صفحة من قائمة التنقل الدائرية.", eyebrow: "التنقل / ٠١", prompt: "إلى أين تريد الانتقال؟" }
+    : { open: "Open navigation menu", title: "Navigate the portfolio", description: "Choose a page from the radial navigation menu.", eyebrow: "Navigation / 01", prompt: "Choose your next stop" };
 
   return (
     <Sheet>
       <SheetTrigger
-        aria-label="Open navigation menu"
+        aria-label={text.open}
         className="flex h-11 w-11 items-center justify-center rounded-full border border-accent/30 bg-accent/10 text-accent shadow-[0_0_24px_rgba(0,255,153,0.08)] outline-none transition-colors hover:bg-accent/20 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
       >
         <CiMenuFries aria-hidden="true" className="text-[1.55rem]" />
@@ -27,45 +31,30 @@ const MobileNav = () => {
 
       <SheetContent
         side="top"
+        dir={locale === "ar" ? "rtl" : "ltr"}
         className="inset-0 flex h-[100dvh] w-full max-w-none flex-col items-center justify-center overflow-hidden border-0 bg-[#111116]/95 p-4 pt-16 text-white backdrop-blur-2xl sm:p-8"
       >
-        <SheetTitle className="sr-only text-white">Navigate the portfolio</SheetTitle>
-        <SheetDescription className="sr-only">
-          Choose a page from the radial navigation menu.
-        </SheetDescription>
+        <SheetTitle className="sr-only text-white">{text.title}</SheetTitle>
+        <SheetDescription className="sr-only">{text.description}</SheetDescription>
 
         <div className="mb-2 text-center">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-accent">
-            Navigation / 01
-          </p>
-          <p className="mt-2 text-sm text-white/55">Choose your next stop</p>
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-accent">{text.eyebrow}</p>
+          <p className="mt-2 text-sm text-white/55">{text.prompt}</p>
         </div>
 
         <div
           className="relative mt-5 grid aspect-square w-[min(78vw,21rem)] place-items-center"
           style={{ "--orbit-radius": "clamp(4.7rem, 23vw, 6rem)" }}
         >
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-[8%] rounded-full border border-accent/20"
-          />
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-[17%] rounded-full border border-white/[0.06]"
-          />
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-[2%] rounded-full bg-[radial-gradient(circle,rgba(0,255,153,0.08)_0%,rgba(28,28,34,0)_68%)]"
-          />
+          <span aria-hidden="true" className="pointer-events-none absolute inset-[8%] rounded-full border border-accent/20" />
+          <span aria-hidden="true" className="pointer-events-none absolute inset-[17%] rounded-full border border-white/[0.06]" />
+          <span aria-hidden="true" className="pointer-events-none absolute inset-[2%] rounded-full bg-[radial-gradient(circle,rgba(0,255,153,0.08)_0%,rgba(28,28,34,0)_68%)]" />
 
-          <div
-            aria-hidden="true"
-            className="absolute left-1/2 top-1/2 z-10 flex h-[4.5rem] w-[4.5rem] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-accent/40 bg-[#1c1c22] text-2xl font-bold tracking-tight text-white shadow-[0_0_32px_rgba(0,255,153,0.14)]"
-          >
+          <div aria-hidden="true" className="absolute left-1/2 top-1/2 z-10 flex h-[4.5rem] w-[4.5rem] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-accent/40 bg-[#1c1c22] text-2xl font-bold tracking-tight text-white shadow-[0_0_32px_rgba(0,255,153,0.14)]">
             Mo<span className="text-accent">.</span>
           </div>
 
-          <nav aria-label="Site navigation" className="absolute inset-0">
+          <nav aria-label={locale === "ar" ? "تنقل الموقع" : "Site navigation"} className="absolute inset-0">
             <ul className="contents">
               {siteNavLinks.map(({ label, href, icon: Icon }, index) => {
                 const isActive = href === pathname;

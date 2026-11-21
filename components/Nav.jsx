@@ -3,14 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
-import { siteNavLinks } from "./site-nav-links";
+import { getSiteNavLinks } from "./site-nav-links";
 
-const Nav = () => {
+const Nav = ({ locale = "en" }) => {
   const pathname = usePathname();
   const prefersReducedMotion = useReducedMotion();
+  const siteNavLinks = getSiteNavLinks(locale);
 
   return (
-    <nav aria-label="Primary navigation">
+    <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"}>
       <ul className="flex items-center gap-1 rounded-full border border-white/10 bg-black/20 p-1">
         {siteNavLinks.map(({ label, href, icon: Icon }) => {
           const isActive = href === pathname;

@@ -9,9 +9,19 @@ const publicPages = [
 ];
 
 export default function sitemap() {
-  return publicPages.map(({ path, priority }) => ({
-    url: path === "/" ? SITE_URL : new URL(path, SITE_URL).toString(),
-    changeFrequency: "monthly",
-    priority,
-  }));
+  return publicPages.flatMap(({ path, priority }) => {
+    const enPath = path;
+    const arPath = path === "/" ? "/ar" : `/ar${path}`;
+    const languages = {
+      en: new URL(enPath, SITE_URL).toString(),
+      ar: new URL(arPath, SITE_URL).toString(),
+      "x-default": new URL(enPath, SITE_URL).toString(),
+    };
+    return [enPath, arPath].map((localizedPath) => ({
+      url: new URL(localizedPath, SITE_URL).toString(),
+      changeFrequency: "monthly",
+      priority,
+      alternates: { languages },
+    }));
+  });
 }
