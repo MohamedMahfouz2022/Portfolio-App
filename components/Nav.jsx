@@ -18,20 +18,14 @@ const Nav = () => {
               <Link
                 href={href}
                 aria-current={isActive ? "page" : undefined}
-                className={`group relative inline-flex h-11 items-center gap-2 rounded-full px-3 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                className={`inline-flex h-11 items-center gap-2 rounded-full border px-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   isActive
-                    ? "bg-accent/10 text-accent"
-                    : "text-white/70 hover:bg-white/[0.06] hover:text-white"
+                    ? "border-accent/65 bg-accent/10 text-accent shadow-[0_0_20px_rgba(0,255,153,0.08)]"
+                    : "border-transparent text-white/70 hover:border-white/15 hover:bg-white/[0.06] hover:text-white"
                 }`}
               >
                 <Icon aria-hidden="true" className="text-base" />
                 <span>{label}</span>
-                <span
-                  aria-hidden="true"
-                  className={`absolute bottom-[0.3rem] left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-accent transition-[opacity,transform] duration-200 ${
-                    isActive ? "scale-100 opacity-100" : "scale-0 opacity-0"
-                  }`}
-                />
               </Link>
             </li>
           );
