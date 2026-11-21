@@ -7,12 +7,14 @@ import {
   FiTrendingUp,
   FiUsers,
 } from "react-icons/fi";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Skills",
   description:
-    "Front-end skills and tools used by Muhammad Mahfouz Moawad, including React, Next.js, TypeScript, and responsive RTL development.",
-};
+    "Muhammad Mahfouz Moawad's front-end skills include React, Next.js, TypeScript, Tailwind CSS, accessibility, and responsive Arabic RTL development.",
+  path: "/skills",
+});
 
 const skillGroups = [
   {

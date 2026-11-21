@@ -1,11 +1,13 @@
 import { FiMail, FiMapPin, FiMessageCircle, FiPhone } from "react-icons/fi";
 import ContactForm from "@/components/ContactForm";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Contact Muhammad Mahfouz Moawad about front-end development, React, Next.js, and web projects.",
-};
+    "Contact Muhammad Mahfouz Moawad, Front-End Developer, about React, Next.js, or web projects. Email, phone, WhatsApp, and a contact form are available.",
+  path: "/contact",
+});
 
 const contactMethods = [
   {
