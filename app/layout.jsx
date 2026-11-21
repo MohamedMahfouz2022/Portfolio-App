@@ -1,30 +1,44 @@
 import "./globals.css";
 import Header from "@/components/Header";
-
-const siteUrl = "https://portfolio-app-chi-sepia.vercel.app";
-const siteTitle = "Mohamed Mahfouz | Front-End Developer";
-const siteDescription =
-  "Portfolio of Mohamed Mahfouz, a front-end developer creating responsive, accessible web experiences with modern technologies.";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
-  title: { default: siteTitle, template: "%s | Mohamed Mahfouz" },
-  description: siteDescription,
-  applicationName: "Mohamed Mahfouz Portfolio",
+  metadataBase: new URL(SITE_URL),
+  title: { default: DEFAULT_TITLE, template: `%s | ${SITE_NAME}` },
+  description: DEFAULT_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  keywords: [
+    SITE_NAME,
+    "Front-End Developer",
+    "React developer",
+    "Next.js developer",
+    "Arabic RTL web development",
+  ],
+  alternates: { canonical: `${SITE_URL}/` },
   openGraph: {
     type: "website",
-    url: siteUrl,
-    siteName: "Mohamed Mahfouz Portfolio",
-    title: siteTitle,
-    description: siteDescription,
+    url: `${SITE_URL}/`,
+    siteName: SITE_NAME,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
     locale: "en_US",
-    images: [{ url: "/Coding-bro.png", width: 2000, height: 2000, alt: "Illustration representing Mohamed Mahfouz's web development portfolio" }],
+    images: [
+      {
+        url: `${SITE_URL}/Coding-bro.png`,
+        width: 2000,
+        height: 2000,
+        alt: "Illustration representing Muhammad Mahfouz Moawad's web development portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
-    images: ["/Coding-bro.png"],
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [`${SITE_URL}/Coding-bro.png`],
   },
   robots: { index: true, follow: true },
 };

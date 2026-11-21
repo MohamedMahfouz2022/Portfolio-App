@@ -9,12 +9,14 @@ import {
   FiLinkedin,
   FiMail,
 } from "react-icons/fi";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Resume",
   description:
-    "Resume of Muhammad Mahfouz Moawad, Front-End Developer specializing in React and Next.js.",
-};
+    "Resume of Muhammad Mahfouz Moawad, Front-End Developer: React and Next.js experience, education, selected projects, and responsive Arabic RTL work.",
+  path: "/resume",
+});
 
 const cvPath = "/Muhammad%20Mahfouz%20Moawad%20Hadib%20CV.pdf";
 

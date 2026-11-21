@@ -4,12 +4,14 @@ import { FiArrowDownRight, FiArrowRight, FiDownload, FiMail } from "react-icons/
 import Photo from "@/components/Photo";
 import Social from "@/components/Social";
 import { featuredProjects } from "@/lib/featuredProjects";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Home",
+export const metadata = createPageMetadata({
+  title: "Front-End Developer Portfolio",
   description:
-    "Muhammad Mahfouz Moawad is a Front-End Developer specializing in React, Next.js, responsive design, and Arabic RTL web experiences.",
-};
+    "Muhammad Mahfouz Moawad is a Front-End Developer in Egypt building responsive React and Next.js websites, including Arabic RTL experiences.",
+  path: "/",
+});
 
 const cvPath = "/Muhammad%20Mahfouz%20Moawad%20Hadib%20CV.pdf";
 
